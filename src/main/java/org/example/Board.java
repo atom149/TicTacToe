@@ -33,14 +33,15 @@ public class Board {
     }
 
     public void print() {
-        System.out.println("▁▁▁▁▁▁▁");
+        System.out.println("  0 1 2");
+        System.out.println(" ▁▁▁▁▁▁▁");
         for (int x = 0; x < 3; x++) {
-            System.out.print("|");
+            System.out.print(x + "|");
             for (int y = 0; y < 3; y++) {
                 System.out.print(cells[x][y] + "|");
             }
             System.out.println();
         }
-        System.out.println("▔▔▔▔▔▔▔");
+        System.out.println(" ▔▔▔▔▔▔▔");
     }
 }
