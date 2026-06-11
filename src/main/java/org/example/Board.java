@@ -25,7 +25,6 @@ public class Board {
         cells[x][y] = marker;
     }
 
-    // US2: display-board
     public boolean isFull() {
         for (char[] row : cells)
             for (char c : row)
@@ -33,9 +32,7 @@ public class Board {
         return true;
     }
 
-    // US2: display-board
     public void print() {
-        System.out.println("Current Player: ");
         System.out.println("▁▁▁▁▁▁▁");
         for (int x = 0; x < 3; x++) {
             System.out.print("|");
