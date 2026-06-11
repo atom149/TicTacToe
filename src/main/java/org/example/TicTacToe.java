@@ -13,7 +13,15 @@ public class TicTacToe {
         board = new Board();
     }
 
+    public Board getBoard() {
+        return board;
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
     public static void main(String[] args) {
-        new TicTacToe().start();
+        new TicTacToe();
     }
 }
