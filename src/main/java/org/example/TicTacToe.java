@@ -23,7 +23,6 @@ public class TicTacToe {
         return currentPlayer;
     }
 
-    // US3: game-result
     public boolean hasWinner() {
         char[][] c = board.getCells();
         char m = currentPlayer.getMarker();
@@ -37,34 +36,49 @@ public class TicTacToe {
         return false;
     }
 
-    // US3: game-result
     public void switchCurrentPlayer() {
         currentPlayer = (currentPlayer == player1) ? player2 : player1;
     }
 
+    // US4: new-game - reset state
+    public void reset() {
+        board.clear();
+        currentPlayer = player1;
+    }
+
     public void start() {
         Scanner sc = new Scanner(System.in);
-        while (!hasWinner() && !board.isFull()) {
-            System.out.println("Current Player: " + currentPlayer.getMarker());
-            board.print();
-            System.out.print("row (0-2): ");
-            int x = sc.nextInt();
-            System.out.print("column (0-2): ");
-            int y = sc.nextInt();
 
-            if (!board.isCellEmpty(x, y)) {
-                System.out.println("Cell already taken, try again.");
-                continue;
+        // US4: new-game - play again loop
+        do {
+            reset();
+            while (!hasWinner() && !board.isFull()) {
+                System.out.println("Current Player: " + currentPlayer.getMarker());
+                board.print();
+                System.out.print("row (0-2): ");
+                int x = sc.nextInt();
+                System.out.print("column (0-2): ");
+                int y = sc.nextInt();
+
+                if (!board.isCellEmpty(x, y)) {
+                    System.out.println("Cell already taken, try again.");
+                    continue;
+                }
+                board.place(x, y, currentPlayer.getMarker());
+                if (!hasWinner()) switchCurrentPlayer();
             }
-            board.place(x, y, currentPlayer.getMarker());
-            if (!hasWinner()) switchCurrentPlayer();
-        }
 
-        board.print();
-        if (hasWinner())
-            System.out.println("Player " + currentPlayer.getMarker() + " wins!");
-        else
-            System.out.println("It's a draw!");
+            board.print();
+            if (hasWinner())
+                System.out.println("Player " + currentPlayer.getMarker() + " wins!");
+            else
+                System.out.println("It's a draw!");
+
+            System.out.print("Play again? (y/n): ");
+            sc.nextLine();
+        } while (sc.nextLine().trim().equalsIgnoreCase("y"));
+
+        System.out.println("Thanks for playing!");
         sc.close();
     }
 
