@@ -16,4 +16,14 @@ public class Board {
     public char[][] getCells() {
         return cells;
     }
+
+    // US1: make-a-move
+    public boolean isCellEmpty(int x, int y) {
+        return cells[x][y] == ' ';
+    }
+
+    // US1: make-a-move
+    public void place(int x, int y, char marker) {
+        cells[x][y] = marker;
+    }
 }
