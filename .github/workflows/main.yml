@@ -20,7 +20,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Run Checkstyle
-          run: mvn checkstyle:check -e
+        run: mvn checkstyle:check -e
 
       - name: Run tests
         run: mvn test
