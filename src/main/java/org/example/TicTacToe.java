@@ -73,11 +73,11 @@ public class TicTacToe {
         try {
             value = Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            System.out.println("Invalid input \"" + input + "\", please enter a number between 0 and 2.");
+            System.out.println("Invalid input: " + input + ". Enter 0, 1, or 2.");
             return -1;
         }
         if (value < 0 || value > 2) {
-            System.out.println("Out of range: " + value + ", please enter a number between 0 and 2.");
+            System.out.println("Out of range: " + value + ". Enter 0, 1, or 2.");
             return -1;
         }
         return value;
