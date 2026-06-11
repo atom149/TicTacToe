@@ -1,4 +1,4 @@
 package org.example;
 
-public class Game {
+public class Player {
 }
