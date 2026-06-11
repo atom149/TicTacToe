@@ -17,13 +17,33 @@ public class Board {
         return cells;
     }
 
-    // US1: make-a-move
     public boolean isCellEmpty(int x, int y) {
         return cells[x][y] == ' ';
     }
 
-    // US1: make-a-move
     public void place(int x, int y, char marker) {
         cells[x][y] = marker;
+    }
+
+    // US2: display-board
+    public boolean isFull() {
+        for (char[] row : cells)
+            for (char c : row)
+                if (c == ' ') return false;
+        return true;
+    }
+
+    // US2: display-board
+    public void print() {
+        System.out.println("Current Player: ");
+        System.out.println("▁▁▁▁▁▁▁");
+        for (int x = 0; x < 3; x++) {
+            System.out.print("|");
+            for (int y = 0; y < 3; y++) {
+                System.out.print(cells[x][y] + "|");
+            }
+            System.out.println();
+        }
+        System.out.println("▔▔▔▔▔▔▔");
     }
 }
